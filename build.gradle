@@ -1,0 +1,43 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+    id "io.micronaut.application" version '1.0.5'
+}
+
+version "0.1"
+group "micronaut.ucp.atp"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+micronaut {
+    runtime "netty"
+    testRuntime "junit5"
+    processing {
+        incremental true
+        annotations "micronaut.ucp.atp.*"
+    }
+}
+
+dependencies {
+    annotationProcessor("io.micronaut.data:micronaut-data-processor:2.1.1")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:2.1.1")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut:micronaut-runtime")
+    implementation("io.micronaut:micronaut-http-client")
+    runtime("com.oracle.database.jdbc:ojdbc8-production:19.8.0.0")
+    runtime("io.micronaut.sql:micronaut-jdbc-ucp")
+    runtimeOnly("ch.qos.logback:logback-classic")
+}
+
+mainClassName = "micronaut.ucp.atp.Application"
+java {
+    sourceCompatibility = JavaVersion.toVersion('1.8')
+    targetCompatibility = JavaVersion.toVersion('1.8')
+}
+
+
+
+

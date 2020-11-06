@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: micronautUcpAtp
+datasources:
+  default:
+    url: jdbc:oracle:thin:@${DB_SERVICE}
+    connectionFactoryClassName: oracle.jdbc.pool.OracleDataSource
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    minPoolSize: 1
+    maxPoolSize: 10
+jpa:
+  default:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        format_sql: true
+        hbm2ddl:
+          auto: update
+        show_sql: true
