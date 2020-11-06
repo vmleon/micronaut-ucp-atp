@@ -1,8 +1,18 @@
-# Micronaut with Autonomous Database
+# Micronaut with Autonomous Database (Hibernate)
 
 JAVA Micronaut framework connecting with Oracle Autonomous Database
 
-This project uses Universal Connection Pool and Hibernate.
+![Micronaut](./images/micronaut.png)
+
+## Why
+
+Get started with a modern JAVA Framework to develop a RESTful service backed up by Oracle Autonomous Databadse.
+
+## How
+
+This project uses Oracle Universal Connection Pool (UCP) and Hibernate.
+
+![Diagram](./images/diagram.png)
 
 Define the following environment variables:
 
@@ -17,7 +27,5 @@ Run the application with:
 
 Test with `curl`:
 
-`curl -s localhost:8080/documents`
-
-- [Micronaut Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
+- `curl -XPOST -H "Content-Type: application/json" -d '{"name": "Victor"}' localhost:8080/documents`
+- `curl -s localhost:8080/documents`
